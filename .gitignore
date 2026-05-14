@@ -15,6 +15,13 @@ build/
 .vite/
 frontend/dist/
 
+# Testing/Utility scripts
+backend/test-analytics.js
+backend/test-mongo.js
+backend/check-admin.js
+backend/clearIndexes.js
+backend/dropIndex.js
+
 # IDE files
 .vscode/
 .idea/
