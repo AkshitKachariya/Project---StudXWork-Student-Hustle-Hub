@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { font-size: 92%; } /* Global scale down to ~92% for professional look */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    @apply bg-brand-bg text-brand-dark font-sans antialiased;
+    background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Ccircle cx='20' cy='20' r='1' fill='%231A1A2E' fill-opacity='0.05'/%3E%3C/g%3E%3C/svg%3E");
+  }
+  h1,h2,h3,h4,h5,h6 { @apply font-bold tracking-tight; }
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { @apply bg-brand-bg; }
+  ::-webkit-scrollbar-thumb { @apply bg-brand-dark rounded-full; }
+}
+
+@layer components {
+  /* ── Neo Brutalism Core ── */
+  .neo-card {
+    @apply bg-white border-2 border-brand-dark shadow-neo transition-all duration-200;
+  }
+  .neo-card:hover { @apply shadow-neo-md -translate-x-0.5 -translate-y-0.5; }
+
+  .neo-btn {
+    @apply inline-flex items-center justify-center gap-2 font-bold border-2 border-brand-dark
+           shadow-neo transition-all duration-150 cursor-pointer select-none px-4 py-2 text-sm;
+  }
+  .neo-btn:hover  { @apply shadow-neo-md -translate-x-0.5 -translate-y-0.5; }
+  .neo-btn:active { @apply shadow-none translate-x-1 translate-y-1; }
+
+  .neo-btn-primary   { @apply neo-btn bg-brand-primary text-white; }
+  .neo-btn-secondary { @apply neo-btn bg-brand-secondary text-white; }
+  .neo-btn-accent    { @apply neo-btn bg-brand-accent text-brand-dark; }
+  .neo-btn-dark      { @apply neo-btn bg-brand-dark text-white; }
+  .neo-btn-white     { @apply neo-btn bg-white text-brand-dark; }
+  .neo-btn-success   { @apply neo-btn bg-brand-success text-white; }
+  .neo-btn-danger    { @apply neo-btn bg-red-500 text-white; }
+
+  .neo-input {
+    @apply w-full border-2 border-brand-dark bg-brand-bg px-3 py-2 text-sm font-medium
+           focus:outline-none focus:shadow-neo focus:-translate-y-0.5 transition-all duration-150;
+  }
+  
+  /* ── Custom Date Picker Styling ── */
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    @apply cursor-pointer p-1 transition-all duration-150;
+    filter: invert(0);
+    background-color: transparent;
+  }
+  input[type="date"]::-webkit-datetime-edit { @apply font-bold uppercase text-sm tracking-widest; }
+  input[type="date"]::-webkit-inner-spin-button { display: none; }
+
+  .neo-badge {
+    @apply inline-flex items-center px-3 py-1 text-xs font-bold border-2 border-brand-dark uppercase tracking-wide;
+  }
+
+  /* ── Sidebar ── */
+  .sidebar-link {
+    @apply flex items-center gap-3 px-3 py-2.5 font-semibold border-2 border-transparent
+           hover:border-brand-dark hover:bg-white/50 transition-all duration-150 cursor-pointer;
+  }
+  .sidebar-link.active {
+    @apply bg-brand-dark text-white border-brand-dark shadow-neo;
+  }
+  .sidebar-collapsed-link {
+    @apply flex items-center justify-center w-10 h-10 mx-auto font-semibold border-2 border-transparent
+           hover:border-brand-dark hover:bg-white/50 transition-all duration-150 cursor-pointer;
+  }
+  .sidebar-collapsed-link.active {
+    @apply bg-brand-dark text-white border-brand-dark shadow-neo;
+  }
+
+  /* ── Page Section ── */
+  .page-title {
+    @apply text-2xl md:text-3xl font-black uppercase tracking-tight;
+  }
+  .section-header {
+    @apply flex items-center justify-between mb-6;
+  }
+
+  /* ── Status badges ── */
+  .badge-pending  { @apply neo-badge bg-yellow-100 text-yellow-800; }
+  .badge-accepted { @apply neo-badge bg-green-100 text-green-800; }
+  .badge-rejected { @apply neo-badge bg-red-100 text-red-800; }
+  .badge-open     { @apply neo-badge bg-blue-100 text-blue-800; }
+  .badge-closed   { @apply neo-badge bg-gray-100 text-gray-600; }
+  .badge-active   { @apply neo-badge bg-green-100 text-green-800; }
+
+  /* ── Chat bubbles ── */
+  .chat-bubble-sent     { @apply bg-brand-dark text-white rounded-tl-2xl rounded-tr-sm rounded-bl-2xl rounded-br-2xl px-4 py-2 max-w-xs ml-auto; }
+  .chat-bubble-received { @apply bg-white border-2 border-brand-dark rounded-tl-sm rounded-tr-2xl rounded-bl-2xl rounded-br-2xl px-4 py-2 max-w-xs; }
+
+  /* ── Stat card ── */
+  .stat-card {
+    @apply neo-card p-4 flex flex-col gap-1;
+  }
+  .stat-value { @apply text-3xl font-black; }
+  .stat-label { @apply text-[11px] font-bold text-brand-muted uppercase tracking-wider; }
+
+  /* ── Table ── */
+  .neo-table { @apply w-full border-3 border-brand-dark; }
+  .neo-table thead tr { @apply bg-brand-dark text-white; }
+  .neo-table th { @apply px-4 py-3 text-left text-sm font-bold uppercase tracking-wide; }
+  .neo-table td { @apply px-4 py-3 text-sm border-t-2 border-brand-dark/20; }
+  .neo-table tbody tr:hover { @apply bg-brand-bg/60; }
+}

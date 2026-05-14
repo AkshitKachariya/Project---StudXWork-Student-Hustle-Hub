@@ -1,0 +1,26 @@
+# Sensitive files
+passwords.txt
+.env
+**/.env
+*.log
+backend/passwords.txt
+
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Build artifacts
+dist/
+build/
+.vite/
+frontend/dist/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
